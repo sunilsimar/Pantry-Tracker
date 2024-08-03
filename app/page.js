@@ -9,26 +9,9 @@ import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
-
 import { motion, AnimatePresence } from 'framer-motion';
 
 const MotionBox = motion(Box);
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "80vw",
-  maxWidth: 400,
-  bgcolor: "white",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  display: "flex",
-  flexDirection: "column",
-  gap: 2,
-};
 
 export default function Home() {
   const theme = useTheme();
@@ -154,36 +137,41 @@ const handleSearch = () => {
         </Box>
 
         <Box sx={{ p: { xs: 2, sm: 3, md: 4 } }}>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 4 }}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              placeholder="Search items..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              InputProps={{
-                startAdornment: (
-                  <SearchIcon sx={{ color: 'rgba(255,255,255,0.5)', mr: 1 }} />
-                ),
-              }}
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  borderRadius: 3,
-                  bgcolor: 'rgba(255,255,255,0.05)',
-                  color: 'white',
-                  transition: 'all 0.3s',
-                  '&:hover': {
-                    bgcolor: 'rgba(255,255,255,0.1)',
-                  },
-                  '& fieldset': {
-                    borderColor: 'rgba(255,255,255,0.1)',
-                  },
-                },
-                '& .MuiInputBase-input::placeholder': {
-                  color: 'rgba(255,255,255,0.5)',
-                },
-              }}
-            />
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mb: 4 }}>
+        <TextField
+          fullWidth
+          variant="outlined"
+          placeholder="Search items..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter') {
+              handleSearch();
+            }
+          }}
+          InputProps={{
+            startAdornment: (
+              <SearchIcon sx={{ color: 'rgba(255,255,255,0.5)', mr: 1 }} />
+            ),
+          }}
+          sx={{
+            '& .MuiOutlinedInput-root': {
+              borderRadius: 3,
+              bgcolor: 'rgba(255,255,255,0.05)',
+              color: 'white',
+              transition: 'all 0.3s',
+              '&:hover': {
+                bgcolor: 'rgba(255,255,255,0.1)',
+              },
+              '& fieldset': {
+                borderColor: 'rgba(255,255,255,0.1)',
+              },
+            },
+            '& .MuiInputBase-input::placeholder': {
+              color: 'rgba(255,255,255,0.5)',
+            },
+          }}
+        />
             <Button
               variant="contained"
               startIcon={<AddCircleOutlineIcon />}
