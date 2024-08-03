@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Box, Modal, Stack, TextField, Typography, Button, IconButton, useTheme, Paper,  Fade,
   InputAdornment, Tooltip, Zoom } from "@mui/material";
 import {firestore} from "@/firebase"
