@@ -131,7 +131,7 @@ const handleSearch = () => {
       >
         <Box sx={{ bgcolor: 'rgba(0,0,0,0.3)', py: 4, px: 3, position: 'relative', overflow: 'hidden' }}>
           <Typography variant="h4" component="h1" sx={{ color: 'white', fontWeight: 'bold', textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            Inventory Management
+            Pantry Tracker
           </Typography>
           {/* <InventoryIcon sx={{ position: 'absolute', fontSize: 200, right: -20, bottom: -40, opacity: 0.1, color: 'white' }} /> */}
         </Box>
